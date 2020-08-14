@@ -12,7 +12,7 @@ interface DaTruMvpOptions {
   githubAccessToken: string;
 }
 
-class DaTruMvp {
+export class DaTruMvp {
   levels: Level[];
   constructor(options: DaTruMvpOptions) {
     this.levels = options.levels;
