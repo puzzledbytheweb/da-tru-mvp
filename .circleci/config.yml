@@ -1,9 +1,9 @@
 version: 2.1
-
 aliases:
   - &defaults
     docker:
       - image: circleci/node:latest
+    working_directory: ~/datrumvp
 
 # Define the jobs we want to run for this project
 jobs:
@@ -12,20 +12,26 @@ jobs:
     steps:
       - checkout
       - run: npm install
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
   build:
     <<: *defaults
     steps:
-      - checkout
+      - attach_workspace:
+          at: ~/datrumvp
       - run: npm run build
   test:
     <<: *defaults
     steps:
-      - checkout
+      - attach_workspace:
+          at: ~/datrumvp
       - run: npm test
 
 # Orchestrate our job run sequence
 workflows:
-  build_and_test:
+  install_build_and_test:
     jobs:
       - install
       - build:
