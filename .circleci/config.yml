@@ -4,6 +4,18 @@ aliases:
     docker:
       - image: circleci/node:latest
     working_directory: ~/datrumvp
+  - &restore-cache
+    keys:
+      # Find a cache corresponding to this specific package.json checksum
+      # when this file is changed, this key will fail
+      - dependency-cache-{{ checksum "package-lock.json" }}-{{ checksum ".circleci/config.yml" }}
+      - dependency-cache-{{ checksum "package-lock.json" }}
+      # Find the most recent cache used from any branch
+      - dependency-cache-
+  - &save-cache
+    key: dependency-cache-{{ checksum "package-lock.json" }}-{{ checksum ".circleci/config.yml" }}
+    paths:
+      - node_modules
 
 # Define the jobs we want to run for this project
 jobs:
@@ -11,7 +23,9 @@ jobs:
     <<: *defaults
     steps:
       - checkout
+      - restore_cache: *restore-cache
       - run: npm install
+      - save_cache: *save-cache
       - persist_to_workspace:
           root: .
           paths:
