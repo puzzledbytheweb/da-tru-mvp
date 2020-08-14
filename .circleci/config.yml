@@ -1,0 +1,36 @@
+version: 2.1
+
+aliases:
+  - &defaults
+    docker:
+      - image: circleci/node:latest
+
+# Define the jobs we want to run for this project
+jobs:
+  install:
+    <<: *defaults
+    steps:
+      - checkout
+      - run: npm install
+  build:
+    <<: *defaults
+    steps:
+      - checkout
+      - run: npm run build
+  test:
+    <<: *defaults
+    steps:
+      - checkout
+      - run: npm test
+
+# Orchestrate our job run sequence
+workflows:
+  build_and_test:
+    jobs:
+      - install
+      - build:
+          requires:
+            - install
+      - test:
+          requires:
+            - install
