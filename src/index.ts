@@ -117,6 +117,7 @@ const thatLevel = yo.getLevelForGivenUser(testUser);
 
 console.log(thatLevel);
 
-// getUserContributions({ repo: 'reach4help', owner: 'reach4help' }).then(res =>
-//   console.log(res.data)
-// );
+// getUserContributions({ repo: 'reach4help', owner: 'reach4help' }).then(res => {
+//   console.log(res.data);
+//   getRateLimit().then(res => console.log(res));
+// });

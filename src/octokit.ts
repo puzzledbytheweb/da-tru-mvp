@@ -41,3 +41,5 @@ export const getUserContributions = async (params: listUserReposParameters) => {
 
   return axios.get(contributors_url);
 };
+
+export const getRateLimit = () => octokit.request('GET /rate_limit');
