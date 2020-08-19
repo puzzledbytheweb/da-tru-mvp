@@ -69,5 +69,5 @@ workflows:
             - test
             - install
             - build
-          filter:
+          filters:
             <<: *only-master
