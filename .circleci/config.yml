@@ -66,6 +66,8 @@ workflows:
             - install
       - release:
           requires:
+            - test
+            - install
             - build
           filter:
             <<: *only-master
