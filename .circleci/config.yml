@@ -51,7 +51,7 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/datrumvp
-      - run: npx auto shipit
+      - run: npx auto shipit -vv
 
 # Orchestrate our job run sequence
 workflows:
