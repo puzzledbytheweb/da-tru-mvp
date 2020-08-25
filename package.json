@@ -48,11 +48,5 @@
     "axios": "^0.19.2",
     "nodemon": "^2.0.4"
   },
-  "repository": "puzzledbytheweb/da-tru-mvp",
-  "auto": {
-    "plugins": [
-      "npm"
-    ],
-    "onlyPublishWithReleaseLabel": true
-  }
+  "repository": "puzzledbytheweb/da-tru-mvp"
 }
