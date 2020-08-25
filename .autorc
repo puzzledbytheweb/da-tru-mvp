@@ -1,0 +1,10 @@
+{
+  "plugins": [
+    "npm"
+  ],
+  "owner": "puzzledbytheweb",
+  "repo": "da-tru-mvp",
+  "name": "puzzledbytheweb",
+  "email": "pmsfilipe1@gmail.com",
+  "onlyPublishWithReleaseLabel": true
+}
