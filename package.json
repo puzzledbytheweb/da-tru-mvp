@@ -1,5 +1,5 @@
 {
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -34,6 +34,7 @@
   "module": "dist/da-tru-mvp-bot.esm.js",
   "devDependencies": {
     "@types/faker": "^4.1.12",
+    "auto": "^9.50.11",
     "faker": "^4.1.0",
     "husky": "^4.2.5",
     "tsdx": "^0.13.2",
@@ -46,5 +47,6 @@
     "@types/axios": "^0.14.0",
     "axios": "^0.19.2",
     "nodemon": "^2.0.4"
-  }
+  },
+  "repository": "puzzledbytheweb/da-tru-mvp"
 }
