@@ -16,6 +16,10 @@ aliases:
     key: dependency-cache-{{ checksum "package-lock.json" }}-{{ checksum ".circleci/config.yml" }}
     paths:
       - node_modules
+  - &only-master
+    branches:
+      only:
+        - master
 
 # Define the jobs we want to run for this project
 jobs:
@@ -42,6 +46,12 @@ jobs:
       - attach_workspace:
           at: ~/datrumvp
       - run: npm test
+  release:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/datrumvp
+      - run: npx auto shipit -vv
 
 # Orchestrate our job run sequence
 workflows:
@@ -54,3 +64,10 @@ workflows:
       - test:
           requires:
             - install
+      - release:
+          requires:
+            - test
+            - install
+            - build
+          filters:
+            <<: *only-master
