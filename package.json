@@ -42,11 +42,16 @@
     "typescript": "^3.9.7"
   },
   "dependencies": {
+    "@octokit/plugin-retry": "^3.0.3",
+    "@octokit/plugin-throttling": "^3.3.0",
     "@octokit/rest": "^18.0.3",
     "@octokit/types": "^5.4.0",
     "@types/axios": "^0.14.0",
+    "@types/signale": "^1.4.1",
     "axios": "^0.19.2",
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4",
+    "pretty-ms": "^7.0.0",
+    "signale": "^1.4.0"
   },
   "repository": "puzzledbytheweb/da-tru-mvp"
 }
