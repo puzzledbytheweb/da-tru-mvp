@@ -47,6 +47,9 @@ const defaultLevels: Level[] = [
 export class DaTruMvp {
   levels: Level[];
   constructor(options: DaTruMvpOptions) {
+    if (!options.githubAccessToken)
+      throw new Error('You need to define a Github Access Token');
+
     this.levels = options.levels || defaultLevels;
   }
 
