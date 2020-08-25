@@ -8,7 +8,7 @@ interface Level {
 }
 
 interface DaTruMvpOptions {
-  levels: Level[];
+  levels?: Level[];
   githubAccessToken: string;
 }
 
@@ -39,7 +39,7 @@ const defaultLevels: Level[] = [
   {
     name: 'Legendary',
     description:
-      'A legend taught in the records of the Jedi Archive. It is a priviledge to work with this individual, life-changing.',
+      'A legend whose history is taught in the records of the Jedi Archive. It is a priviledge to work with this individual, life-changing.',
     threshold: 200,
   },
 ];
@@ -47,7 +47,7 @@ const defaultLevels: Level[] = [
 export class DaTruMvp {
   levels: Level[];
   constructor(options: DaTruMvpOptions) {
-    if (!options.githubAccessToken)
+    if (!options.githubAccessToken || options.githubAccessToken === '')
       throw new Error('You need to define a Github Access Token');
 
     this.levels = options.levels || defaultLevels;
