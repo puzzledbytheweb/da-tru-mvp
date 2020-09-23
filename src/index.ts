@@ -13,8 +13,6 @@ const main = async () => {
     createLogger()
   );
 
-  console.log('OMG!!');
-
   const pull_number = 986;
 
   const contributtingUsersForPullRequest = await daTruMvp.getContributtingUsersForPullRequest(
@@ -25,7 +23,6 @@ const main = async () => {
     }
   );
 
-  // TODO: PROMISE<pending>
   const userContributions = await Promise.all(
     contributtingUsersForPullRequest.map(
       async user =>
