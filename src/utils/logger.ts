@@ -14,7 +14,7 @@ export interface Logger {
 }
 
 /** Create a dummy logger for testing. */
-export function dummyLog(): Logger {
+export function createDummyLog(): Logger {
   return {
     log: new signale.Signale({ disabled: true }),
     verbose: new signale.Signale({ disabled: true }),
@@ -59,6 +59,6 @@ export function setLogLevel(newLogLevel: LogLevel) {
 }
 
 /** Create a logger the the given log level. */
-export default function createLog(): Logger {
+export function createLogger(): Logger {
   return logger;
 }
