@@ -9,22 +9,6 @@ const levels = [
 ];
 
 describe('DaTruMvp', () => {
-  it('Throws an error if the Github Access Token is not provided or is an empty string', () => {
-    expect(
-      () =>
-        new DaTruMvp(
-          {
-            githubAccessToken: '',
-          },
-          createDummyLog()
-        )
-    ).toThrowErrorMatchingInlineSnapshot(
-      `"You need to define a Github Access Token"`
-    );
-
-    // TODO: Create test to check if it throws error when githubAccessToken is not passed
-  });
-
   it("Returns the correct first level that has a lesser or equal threshold than the user's contributions", () => {
     const user1 = buildUser({ contributions: 29 });
     const user2 = buildUser({ contributions: 30 });
